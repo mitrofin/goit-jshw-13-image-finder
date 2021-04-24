@@ -19,6 +19,7 @@ function renderCard({ hits }) {
 }
 /* refs.searchForm.img.focus(); */
 refs.searchForm.addEventListener('submit', onSearch);
+refs.containerList.addEventListener('click', openModal);
 
 function onSearch(event) {
   event.preventDefault();
@@ -27,10 +28,12 @@ function onSearch(event) {
   console.log(event.target.elements.query.value);
   api.fetchApi().then(renderCard);
 }
-
-/* const instance = basicLightbox.create(`
-    <img src="assets/images/image.png" width="800" height="600">
+/* console.log(refs.searchForm.elements.query.value); */
+function openModal(e) {
+  const instance = basicLightbox.create(`
+    <img src="${e.target.dataset.sourse}" width="" height="">
 `);
+  instance.show();
+}
 
-instance.show(); */
 /* renderCard(); */
