@@ -1,6 +1,6 @@
 export default class apiService {
   constructor() {
-    this.searchImg = 'boy';
+    this.searchImg = '';
     this.startPage = 1;
     this.per_page = 12;
   }
