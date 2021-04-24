@@ -1,4 +1,5 @@
 import './styles.css';
+import '../node_modules/modern-normalize/modern-normalize.css';
 import imageCardTmpl from './templates/imageCard.hbs';
 import apiService from './js/apiService';
 import '../node_modules/material-design-icons/iconfont/material-icons.css';
