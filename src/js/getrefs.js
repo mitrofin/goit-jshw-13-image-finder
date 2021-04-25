@@ -3,6 +3,6 @@ export default function getRefs() {
     searchForm: document.querySelector('.search-form'),
     containerList: document.querySelector('.gallery'),
     clickButton: document.getElementById('button'),
-    pointForDownloadNextImages: document.querySelector('#dowmload-next-imeges'),
+    pointForDownloadNextImg: document.getElementById('dowmload-next-imeges'),
   };
 }

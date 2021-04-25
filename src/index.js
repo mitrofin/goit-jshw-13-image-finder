@@ -21,18 +21,35 @@ const api = new apiService();
 refs.searchForm.addEventListener('submit', onSearch);
 refs.containerList.addEventListener('click', openModal);
 
-function onSearch(event) {
+async function onSearch(event) {
   event.preventDefault();
   api.resetPage();
   api.img = event.target.elements.query.value;
-  if (api.img.length === 0 || api.img === ' ') {
+  if (api.img.length === 0 || !api.img.trim()) {
     clearPage();
     showNotify.ShowInfo();
     return;
   }
+  try {
+    const onEntry = entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && api.img !== '') {
+          api.fetchApi().then(renderCard);
+        }
+      });
+    };
+    const option = {
+      rootMargin: '50px',
+    };
 
-  console.log(event.target.elements.query.value);
-  api.fetchApi().then(renderCard);
+    const observer = new IntersectionObserver(onEntry, option);
+    observer.observe(refs.pointForDownloadNextImg);
+  } catch (error) {
+    showNotify.showError();
+  }
+
+  /* console.log(event.target.elements.query.value);
+  await api.fetchApi().then(renderCard); */
 }
 /* console.log(refs.searchForm.elements.query.value); */
 /* function openModal(e) {
