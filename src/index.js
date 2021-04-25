@@ -7,6 +7,7 @@ import renderCard from './js/renderCard';
 import * as showNotify from './js/pnotify';
 import openModal from './js/openModal';
 import clearPage from './js/clearPage';
+import clearResult from './js/clearResult';
 
 const refs = getRefs();
 const api = new apiService();
@@ -20,6 +21,7 @@ function onSearch(event) {
   api.img = event.target.elements.query.value;
   if (api.img.length === 0 || !api.img.trim()) {
     clearPage();
+    clearResult();
     showNotify.ShowInfo();
     return;
   }
