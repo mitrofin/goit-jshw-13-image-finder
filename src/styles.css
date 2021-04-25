@@ -67,6 +67,7 @@ i.material-icons {
   justify-content: center;
   align-items: center;
   border-color: orange;
+  cursor: pointer;
 }
 .search-input::placeholder {
   opacity: 0.5;
