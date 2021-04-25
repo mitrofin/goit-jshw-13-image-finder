@@ -5,7 +5,7 @@ export default class apiService {
     this.per_page = 12;
   }
 
-  fetchApi() {
+  async fetchApi() {
     const MY_KEY = '19219612-10b40d6746041ffd691397b9a';
     const BASE_URL =
       'https://pixabay.com/api/?image_type=photo&orientation=horizontal&';
