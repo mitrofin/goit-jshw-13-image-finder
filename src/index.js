@@ -10,6 +10,7 @@ import renderCard from './js/renderCard';
 import appendMarkUp from './js/appendMarkUp';
 import * as showNotify from './js/pnotify';
 import openModal from './js/openModal';
+import clearPage from './js/clearPage';
 
 const refs = getRefs();
 const api = new apiService();
@@ -24,6 +25,12 @@ function onSearch(event) {
   event.preventDefault();
   api.resetPage();
   api.img = event.target.elements.query.value;
+  if (api.img.length === 0 || api.img === ' ') {
+    clearPage();
+    showNotify.ShowInfo();
+    return;
+  }
+
   console.log(event.target.elements.query.value);
   api.fetchApi().then(renderCard);
 }
