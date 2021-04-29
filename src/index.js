@@ -8,7 +8,9 @@ import * as showNotify from './js/pnotify';
 import openModal from './js/openModal';
 import clearPage from './js/clearPage';
 import clearResult from './js/clearResult';
+import './js/preloader';
 
+/* preloader(); */
 const refs = getRefs();
 const api = new apiService();
 
